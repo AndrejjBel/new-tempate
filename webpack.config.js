@@ -1,13 +1,14 @@
 const webpack = require('webpack');
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
   entry: './src/index.js',
+  devtool: "source-map",
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+      path: path.resolve(__dirname, 'dist/assets'),
+      filename: '../bundle.min.js',
+      clean: true
   },
   module: {
     rules: [
@@ -27,37 +28,21 @@ const config = {
             }
           },
           'postcss-loader'
-        ],
-        exclude: /\.module\.css$/
-      },
-      {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              modules: true
-            }
-          },
-          'postcss-loader'
-        ],
-        include: /\.module\.css$/
+        ]
       },
       {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
+          'postcss-loader',
           'sass-loader'
         ]
       }
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin({filename: '../main.min.css'})
   ]
 };
 

@@ -1,5 +1,5 @@
 {
-  "name": "general-project",
+  "name": "new-template",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,8 +8,8 @@
   "license": "ISC",
   "scripts": {
     "clean": "rm dist/bundle.js",
-    "build-dev": "webpack --mode development",
-    "build-prod": "webpack --mode production"
+    "dev": "webpack --mode development",
+    "prod": "webpack --mode production"
   },
   "dependencies": {},
   "devDependencies": {
