@@ -7,7 +7,6 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "clean": "rm dist/bundle.min.js",
     "dev": "webpack --mode development",
     "prod": "webpack --mode production"
   },
